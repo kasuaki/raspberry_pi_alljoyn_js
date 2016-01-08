@@ -1,13 +1,13 @@
 var AJ = require('AllJoyn');
 
-var INTERFACE_NAME = "org.alljoyn.Bus.sample";
-var SERVICE_NAME = "org.alljoyn.Bus.sample";
+var INTERFACE_NAME = "org.alljoyn.SensorLightCamera.Sensor";
+var SERVICE_NAME = "org.alljoyn.SensorLightCamera";
 var SERVICE_PATH = "/";
 
 AJ.interfaceDefinition[INTERFACE_NAME] =
 {
-    nameChanged:{ type:AJ.SIGNAL, args:["s"]},
-    name:{ type:AJ.PROPERTY, signature:'s' },
+    sensed:{ type:AJ.SIGNAL, args:["b"]},
+    sense:{ type:AJ.PROPERTY, signature:'b' },
 };
 
 AJ.objectDefinition[SERVICE_PATH] = {
@@ -42,7 +42,7 @@ AJ.onSignal = function() {
     print("Member: ", this.member);
     print("Arguments: ", JSON.stringify(arguments));
 
-    if (this.member == "nameChanged") {
+    if (this.member == "sensed") {
     }
 }
 

@@ -1,0 +1,2 @@
+#!/bin/sh
+./alljoynjs --debug --nvram-file light.nvram light.js
